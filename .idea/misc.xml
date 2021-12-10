@@ -4,8 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2421875" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/custom_rectangle.xml" value="0.16145833333333334" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/ic_add.xml" value="0.13680555555555557" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/ic_back.xml" value="0.16145833333333334" />
         <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2421875" />
-        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/ic_logout.xml" value="0.13680555555555557" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/ic_remove.xml" value="0.13680555555555557" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/drawable/test.xml" value="0.16145833333333334" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/androidProjects/projects/co.fanavari.myapplication18/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2421875" />
       </map>
     </option>

@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="home">خانه</string>
+    <string name="class_name">android class</string>
+    <string name="mentor_name">Hananeh Rahmatzehi</string>
+    <string name="mentor">Mentor</string>
+    <string name="edit_profile">edit profile</string>
+    <string name="lifecycles">lifecycles</string>
+    <string name="layouts">layouts</string>
+    <string name="internet">internet</string>
+    <string name="database">database_string</string>
+    <string name="arch">arch</string>
+    <string name="themes">themes</string>
+    <string name="todo_list">todo list</string>
 </resources>
