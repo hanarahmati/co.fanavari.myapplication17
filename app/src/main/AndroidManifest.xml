@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".LifeCycleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntentForResultExampleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntentExampleActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="mailto" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".DashboardActivity"
             android:exported="true">
             <intent-filter>
@@ -18,9 +33,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:exported="false"/>
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
 </manifest>
