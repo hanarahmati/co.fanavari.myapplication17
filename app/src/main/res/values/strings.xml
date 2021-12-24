@@ -12,4 +12,34 @@
     <string name="arch">arch</string>
     <string name="themes">themes</string>
     <string name="todo_list">todo list</string>
+    <string name="components">components</string>
+    <string name="search">search</string>
+    <string name="content_description_search">content description search</string>
+    <string name="more">more</string>
+    <string name="content_description_more">content description more</string>
+    <string name="favorite">favorite</string>
+    <string name="content_description_favorite">content description favorite</string>
+    <string name="label_1">label 1</string>
+    <string name="label_2">label 2</string>
+    <string name="label_3">label 3</string>
+    <string name="label_5">label 5</string>
+    <string name="label_4">label 4</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="title">دیالوگ من</string>
+    <string name="supporting_text">آیا مطمین هستید؟</string>
+    <string name="cancel">لغو</string>
+    <string name="decline">انصراف</string>
+    <string name="accept">تایید</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

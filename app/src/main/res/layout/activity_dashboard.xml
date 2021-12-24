@@ -428,7 +428,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/themeCard"
+                android:id="@+id/componentsCard"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -447,16 +447,16 @@
                         android:layout_margin="8dp"
                         android:src="@drawable/userinterface07"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/textViewThemeCard"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewComponentsCard"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"/>
 
                     <TextView
-                        android:id="@+id/textViewThemeCard"
+                        android:id="@+id/textViewComponentsCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="@string/themes"
+                        android:text="@string/components"
                         android:textAllCaps="true"
                         android:textColor="@color/green_500"
                         android:textSize="14sp"

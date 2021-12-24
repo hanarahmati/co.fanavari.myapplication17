@@ -52,7 +52,12 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         binding.lifeCycleCard.setOnClickListener {
-            var intent = Intent(this,LifeCycleActivity::class.java)
+            val intent = Intent(this,LifeCycleActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.componentsCard.setOnClickListener {
+            val intent = Intent(this, ComponentExampleActivity::class.java)
             startActivity(intent)
         }
 
