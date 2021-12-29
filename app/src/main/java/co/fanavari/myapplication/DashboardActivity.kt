@@ -61,6 +61,11 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.archCards.setOnClickListener {
+            val intent = Intent(this, ComponentNavExampleActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     fun openLifeCycle(view: View){
