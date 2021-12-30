@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".NavigationComponentExampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ComponentExampleActivity"
             android:exported="false" />
         <activity
