@@ -1,14 +1,22 @@
 package co.fanavari.myapplication
 
 import android.content.Intent
+import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.ProfileSyncState.set
+import android.provider.ContactsContract.SyncState.set
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.fragment.app.commit
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewTreeLifecycleOwner.set
 import co.fanavari.myapplication.databinding.ActivityDashboardBinding
+import co.fanavari.myapplication.ui.task.TasksFragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.lang.reflect.Array.set
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -66,9 +74,17 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.databaseCard.setOnClickListener {
+            val intent = Intent(this, NavigationComponentExampleActivity::class.java)
+            intent.putExtra("PAGE_DB",true)
+            startActivity(intent)
+        }
+
     }
 
     fun openLifeCycle(view: View){
 
     }
+
+
 }
