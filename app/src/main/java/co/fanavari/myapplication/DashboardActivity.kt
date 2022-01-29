@@ -66,6 +66,12 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.databaseCard.setOnClickListener {
+            val intent = Intent(this, NavigationComponentExampleActivity::class.java)
+            intent.putExtra("PAGE_DB", true)
+            startActivity(intent)
+        }
+
     }
 
     fun openLifeCycle(view: View){
