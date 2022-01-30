@@ -36,4 +36,9 @@
         android:name="co.fanavari.myapplication.ui.gallery.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="co.fanavari.myapplication.ui.task.TasksFragment"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasks" />
 </navigation>

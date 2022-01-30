@@ -46,7 +46,7 @@ class NavigationComponentExampleActivity : AppCompatActivity() {
         intent.extras?.let {
             if(it.getBoolean("PAGE_DB")){
                 val navGraph = navController.navInflater.inflate(R.navigation.nav_view)
-               // navGraph.startDestination = R.id.tasksFragment
+                navGraph.startDestination = R.id.tasksFragment
                 navController.graph = navGraph
             }
         }
