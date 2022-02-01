@@ -5,18 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import co.fanavari.myapplication.R
+import dagger.hilt.android.AndroidEntryPoint
 
 
-class TasksFragment : Fragment() {
+@AndroidEntryPoint
+class TasksFragment : Fragment(R.layout.fragment_tasks) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false)
-    }
-
-
+    private val viewModel: TasksViewModel by viewModels()
 }

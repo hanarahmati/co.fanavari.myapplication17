@@ -25,4 +25,10 @@ task clean(type: Delete) {
 ext{
     retrofitVersion = '2.9.0'
     paging_version = '3.0.1'
+    lifecycleVersion = "2.4.0"
+    constraintLayoutVersion = "2.0.4"
+    roomVersion = "2.4.1"
+    hiltAndroidXVersion = " 1.0.0-alpha03"
+    coroutinesVersion = "1.6.0"
+
 }
