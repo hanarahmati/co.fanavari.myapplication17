@@ -91,7 +91,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 //    implementation "android.arch.lifecycle:common-java8:2.4.0"
     // Annotation processor
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
 
