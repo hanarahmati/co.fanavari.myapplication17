@@ -3,7 +3,7 @@ package co.fanavari.myapplication.di
 import android.app.Application
 import androidx.room.Room
 import co.fanavari.myapplication.api.UnsplashApi
-import co.fanavari.myapplication.data.TaskDatabase
+import co.fanavari.myapplication.data.task.TaskDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -39,7 +38,7 @@ object AppModule {
     fun provideDatabase(
         app: Application,
         callback: TaskDatabase.CallBack
-    ) = Room.databaseBuilder(app,TaskDatabase::class.java, "task_database")
+    ) = Room.databaseBuilder(app, TaskDatabase::class.java, "task_database")
         .fallbackToDestructiveMigration()
         .addCallback(callback)
         .build()

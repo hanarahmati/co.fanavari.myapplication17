@@ -1,4 +1,4 @@
-package co.fanavari.myapplication.data
+package co.fanavari.myapplication.data.task
 
 import android.os.Parcelable
 import androidx.room.Entity

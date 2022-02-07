@@ -1,4 +1,4 @@
-package co.fanavari.myapplication.data
+package co.fanavari.myapplication.data.task
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
