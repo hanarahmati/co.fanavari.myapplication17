@@ -30,5 +30,6 @@ ext{
     roomVersion = "2.4.1"
     hiltAndroidXVersion = " 1.0.0-alpha03"
     coroutinesVersion = "1.6.0"
+    dataStoreVersion = "1.0.0"
 
 }
