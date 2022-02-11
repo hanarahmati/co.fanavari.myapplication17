@@ -31,4 +31,5 @@ ext{
     hiltAndroidXVersion = " 1.0.0-alpha03"
     coroutinesVersion = "1.6.0"
 
+    dataStoreVersion = "1.0.0"
 }

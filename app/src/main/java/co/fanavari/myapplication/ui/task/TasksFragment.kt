@@ -5,11 +5,16 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.fanavari.myapplication.R
+import co.fanavari.myapplication.data.task.SortOrder
 import co.fanavari.myapplication.databinding.FragmentTasksBinding
 import co.fanavari.myapplication.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import java.nio.file.Files.find
 
 
 @AndroidEntryPoint
@@ -36,6 +41,8 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
             taskAdapter.submitList(it)
         }
 
+
+
         setHasOptionsMenu(true)
     }
 
@@ -48,6 +55,11 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
         searchView.onQueryTextChanged {
             viewModel.searchQuery.value = it
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            menu.findItem(R.id.action_hide_completed_tasks).isChecked =
+                viewModel.preferencesFlow.first().hideCompleted
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,19 +67,23 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
 
             R.id.action_sort_by_name -> {
 
-                viewModel.sortOrder.value = SortOrder.BY_NAME
+                //viewModel.sortOrder.value = SortOrder.BY_NAME
+
+                viewModel.onSortOrderSelected(SortOrder.BY_NAME)
                 true
             }
 
             R.id.action_sort_by_date_created -> {
-                viewModel.sortOrder.value = SortOrder.BY_DATE
+               // viewModel.sortOrder.value = SortOrder.BY_DATE
+                viewModel.onSortOrderSelected(SortOrder.BY_DATE)
                 true
             }
 
             R.id.action_hide_completed_tasks -> {
 
                 item.isChecked = !item.isChecked
-                viewModel.hideCompleted.value = item.isChecked
+               // viewModel.hideCompleted.value = item.isChecked
+                viewModel.onHideCompletedClicked(item.isChecked)
                 true
             }
 
