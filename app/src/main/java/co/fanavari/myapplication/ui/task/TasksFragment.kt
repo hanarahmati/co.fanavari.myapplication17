@@ -18,10 +18,10 @@ import co.fanavari.myapplication.util.exhaustive
 import co.fanavari.myapplication.util.onQueryTextChanged
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.nio.file.Files.find
+
+
 
 
 @AndroidEntryPoint
@@ -42,6 +42,12 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TasksAdapter.OnItemClic
                 layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
             }
+        }
+
+        requireActivity().supportFragmentManager.setFragmentResultListener("add_edit_req",viewLifecycleOwner) {
+            _, bundle ->
+            val result = bundle.getInt("add_edit_result")
+            viewModel.onAddEditResult(result)
         }
 
         viewModel.tasks.observe(viewLifecycleOwner) {
@@ -89,6 +95,9 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TasksAdapter.OnItemClic
                         val action = TasksFragmentDirections.actionTasksFragmentToAddEditTaskFragment(event.task,"Edit Task")
                         findNavController().navigate(action)
                     }
+                    is TasksViewModel.TasksEvent.ShowTaskSavedConfirmationMessage -> {
+                        Snackbar.make(requireView(), event.msg , Snackbar.LENGTH_SHORT).show()
+                    }
                 }.exhaustive
 
             }
@@ -96,6 +105,8 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TasksAdapter.OnItemClic
 
         setHasOptionsMenu(true)
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_fragment_tasks, menu)

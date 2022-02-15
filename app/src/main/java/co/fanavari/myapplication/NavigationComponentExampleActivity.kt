@@ -1,5 +1,6 @@
 package co.fanavari.myapplication
 
+import android.app.Activity
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -91,4 +92,9 @@ class NavigationComponentExampleActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragmentContainerView)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }
+
+const val ADD_TASK_RESULT_OK = Activity.RESULT_FIRST_USER
+const val EDIT_TASK_RESULT_OK = Activity.RESULT_FIRST_USER + 1

@@ -2,12 +2,19 @@ package co.fanavari.myapplication.ui.addEditTask
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import co.fanavari.myapplication.R
 import co.fanavari.myapplication.databinding.FragmentAddEditTaskBinding
+import co.fanavari.myapplication.util.exhaustive
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class AddEditTaskFragment : Fragment(R.layout.fragment_add_edit_task) {
@@ -26,5 +33,37 @@ class AddEditTaskFragment : Fragment(R.layout.fragment_add_edit_task) {
             textViewDateCreated.isVisible = viewModel.task != null
             textViewDateCreated.text = "Created: ${viewModel.task?.createdDateFormatted}"
         }
+
+        binding.editTextTaskName.addTextChangedListener {
+            viewModel.taskName = it.toString()
+        }
+
+        binding.checkBoxImportant.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.taskImportance = isChecked
+        }
+
+        binding.fabSaveTask.setOnClickListener {
+            viewModel.onSaveClick()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.addEditTaskEvent.collect{event ->
+                when(event){
+                    is AddEditTaskViewModel.AddEditTaskEvent.NavigateBackWithResult -> {
+                        binding.editTextTaskName.clearFocus()
+                        requireActivity().supportFragmentManager.setFragmentResult(
+                            "add_edit_req",
+                            bundleOf("add_edit_result" to event.result)
+                        )
+                        findNavController().popBackStack()
+                    }
+                    is AddEditTaskViewModel.AddEditTaskEvent.ShowInvalidInputMessage -> {
+                        Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_LONG).show()
+                    }
+                }.exhaustive
+            }
+        }
+
+
     }
 }

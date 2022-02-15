@@ -2,6 +2,8 @@ package co.fanavari.myapplication.ui.task
 
 import androidx.lifecycle.*
 import androidx.room.Query
+import co.fanavari.myapplication.ADD_TASK_RESULT_OK
+import co.fanavari.myapplication.EDIT_TASK_RESULT_OK
 import co.fanavari.myapplication.data.task.PreferencesManager
 import co.fanavari.myapplication.data.task.SortOrder
 import co.fanavari.myapplication.data.task.Task
@@ -91,11 +93,22 @@ class TasksViewModel @Inject constructor(
         tasksEventChannel.send(TasksEvent.NavigateToEditTaskScreen(task))
     }
 
+    fun onAddEditResult(result : Int){
+        when(result){
+            ADD_TASK_RESULT_OK -> showTaskSavedConfirmationMessage("Task Added")
+            EDIT_TASK_RESULT_OK -> showTaskSavedConfirmationMessage("Task Updated")
+        }
+    }
+    private fun showTaskSavedConfirmationMessage(text: String) = viewModelScope.launch {
+        tasksEventChannel.send(TasksEvent.ShowTaskSavedConfirmationMessage(text))
+    }
+
 
     sealed class TasksEvent {
         data class ShowUndoDeleteTaskMessage(val task: Task) : TasksEvent()
         object NavigateToAddTaskScreen : TasksEvent()
         data class NavigateToEditTaskScreen(val task: Task) : TasksEvent()
+        data class ShowTaskSavedConfirmationMessage(val msg: String) : TasksEvent()
     }
 
 
